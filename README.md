@@ -10,7 +10,7 @@ This repository is a collection of various cool and exciting apps built using Re
 
 To get started with these apps, clone the repository, navigate to the app you want to use, and install the dependencies.
 
-## here is sample of the Todoapp
+## Here is sample of the Todoapp ⭐
 
 
 
