@@ -13,15 +13,7 @@ This is a simple yet powerful Todo List app built using React Native. It allows 
 - Delete todos with a cool animation
 - Fun and interactive user interface
 
-## Getting Started :runner:
 
-To get started with this app, clone the repository and install the dependencies.
-
-```bash
-git clone <repo-url>
-cd <app-directory>
-npm install
-npm run android
 
 ## Here is sample video of the Todoapp ⭐
 
