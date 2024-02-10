@@ -21,3 +21,16 @@ To get started with this app, clone the repository and install the dependencies.
 git clone <repo-url>
 cd <app-directory>
 npm install
+npm run android
+
+## Here is sample video of the Todoapp ⭐
+
+
+
+
+
+
+
+
+
+https://github.com/temez26/React-native-apps/assets/95919515/a9077548-3616-4dfb-b6e1-8e93cd4a5086
