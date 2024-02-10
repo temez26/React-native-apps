@@ -10,7 +10,8 @@ This repository is a collection of various cool and exciting apps built using Re
 
 To get started with these apps, clone the repository, navigate to the app you want to use, and install the dependencies.
 
-```bash
-git clone <repo-url>
-cd <app-directory>
-npm install
+
+
+
+
+
