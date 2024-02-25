@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from 'react';
-import { Animated } from 'react-native';
+import { Animated, Alert } from 'react-native';
 import { Todo } from './types';
 
 import AsyncStorage from '@react-native-async-storage/async-storage';
@@ -63,23 +63,27 @@ export const Services = () => {
   const deleteTodo = (id: number) => {
     const todo = todos.find(todo => todo.id === id);
     if (todo) {
+      
       setDeletingTodos([...deletingTodos, todo]);
     } else {
-      console.error(`Todo with id ${id} not found`);
+      Alert.alert(`Todo with id ${id} not found`);
     }
   };
 
   const addTodo = (title: string) => {
-    if (title.trim() === '') {
-      alert('Todo title cannot be empty!');
+   
+    if (title.trim() === '') {   
+      Alert.alert('Todo cannot be empty!');
+      
       return;
     }
     if (todos.some((todo) => todo.title === title)) {
-      alert('A todo with this title already exists!');
+      Alert.alert('A todo with this title already exists!');
       return;
     }
     setTodos([...todos, { id: idRef.current++, title: title, done: false, opacity: new Animated.Value(1) }]);
     AsyncStorage.setItem('idRef', JSON.stringify(idRef.current));
+    
   };
 
   const toggleTodo = (id: number) => {

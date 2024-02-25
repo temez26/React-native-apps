@@ -21,7 +21,7 @@ export const TodoList: React.FC<TodoListProps> = ({ todos, onToggle, onDelete })
         <Animated.View style={[styles.todoItem, { opacity: item.opacity }]}>
           <Text style={styles.todoText}>{item.title}</Text>
           <View style={{ flexDirection: 'row' }}>
-            <ToggleTodo done={item.done} onToggle={() => onToggle(item.id)} />
+            <ToggleTodo   done={item.done} onToggle={() => onToggle(item.id)} />
             <DeleteTodo onDelete={() => onDelete(item.id)} />
           </View>
         </Animated.View>
