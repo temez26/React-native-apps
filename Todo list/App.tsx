@@ -17,15 +17,29 @@ export default function App() {
   const [deletingTodos, setDeletingTodos] = useState<Todo[]>([]);
   const idRef = useRef(0);
   useEffect(() => {
-    AsyncStorage.getItem('todos')
+    AsyncStorage.getItem('idRef')
       .then(value => {
         if (value !== null) {
-          setTodos(JSON.parse(value));
+          idRef.current = JSON.parse(value);
         }
       });
   }, []);
   useEffect(() => {
-    AsyncStorage.setItem('todos', JSON.stringify(todos));
+    AsyncStorage.getItem('todos')
+      .then(value => {
+        if (value !== null) {
+          const storedTodos = JSON.parse(value);
+          const todosWithOpacity = storedTodos.map((todo: Todo) => ({
+            ...todo,
+            opacity: new Animated.Value(1),
+          }));
+          setTodos(todosWithOpacity);
+        }
+      });
+  }, []);
+  useEffect(() => {
+    const todosToStore = todos.map(({ id, title, done }) => ({ id, title, done }));
+    AsyncStorage.setItem('todos', JSON.stringify(todosToStore));
   }, [todos]);
 
   const filteredTodos = todos.filter(todo => {
@@ -66,6 +80,7 @@ export default function App() {
       return;
     }
     setTodos([...todos, { id: idRef.current++, title: input, done: false, opacity: new Animated.Value(1) }]);
+    AsyncStorage.setItem('idRef', JSON.stringify(idRef.current));
     setInput('');
   };
 
