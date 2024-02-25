@@ -4,8 +4,6 @@ import { Todo } from './types';
 
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-
-
 export const Services = () => {
   const [todos, setTodos] = useState<Todo[]>([]);
   const [filter, setFilter] = useState('all');

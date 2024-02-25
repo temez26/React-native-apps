@@ -1,5 +1,5 @@
-// components/addTodo.tsx
-import React, { useState } from 'react';
+
+import  { useState } from 'react';
 import { TextInput, TouchableOpacity, Text } from 'react-native';
 import styles from '../../styles.js';
 

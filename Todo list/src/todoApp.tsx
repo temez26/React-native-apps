@@ -1,5 +1,5 @@
 import React from 'react';
-import { SafeAreaView, Text,Animated } from 'react-native';
+import { SafeAreaView, Text} from 'react-native';
 import LottieView from 'lottie-react-native';
 import { AddTodo } from './components/addTodo';
 import { FilterButtons } from './components/filterButtons';

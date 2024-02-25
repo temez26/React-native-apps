@@ -1,6 +1,5 @@
 import React from 'react';
 import { Services } from './src/services';
-
 import { TodoApp } from './src/todoApp';
 
 export default function App() {

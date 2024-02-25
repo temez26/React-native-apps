@@ -1,4 +1,3 @@
-import React from 'react';
 import { FlatList, View, Text, Animated } from 'react-native';
 import { DeleteTodo } from './deleteTodo';
 import { ToggleTodo } from './toggleTodo';
