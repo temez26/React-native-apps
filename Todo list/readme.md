@@ -22,7 +22,11 @@ This is a simple yet powerful Todo List app built using React Native. It allows 
 
 
 
+https://github.com/temez26/React-native-apps/assets/95919515/c070956d-9cdb-40c2-a2d7-204fd476f2cd
 
 
 
-https://github.com/temez26/React-native-apps/assets/95919515/a9077548-3616-4dfb-b6e1-8e93cd4a5086
+
+
+
+
