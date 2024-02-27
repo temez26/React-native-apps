@@ -9,6 +9,8 @@ This repository is a collection of various cool and exciting apps built using Re
 ## Getting Started :runner:
 
 To get started with these apps, clone the repository, navigate to the app you want to use, and install the dependencies.
+## Heres download link for the apk file.
+https://expo.dev//accounts/temez26/projects/React/builds/ad4dd49b-a686-456e-9c91-723afed2506d
 
 ## Here is sample video of the Todoapp ⭐
 
