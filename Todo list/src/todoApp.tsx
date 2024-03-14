@@ -8,7 +8,7 @@ import { Todo } from './types';
 import styles from '../styles.js';
 
 
-
+// Defining the props for the TodoApp component
 interface TodoAppProps {
   todos: Todo[];
   onAdd: (title: string) => void;

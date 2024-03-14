@@ -5,7 +5,7 @@ import { Todo } from '../types';
 import styles from '../../styles.js';
 
 
-
+// Deleting and toggling todos
 interface TodoListProps {
   todos: Todo[];
   onToggle: (id: number) => void;
