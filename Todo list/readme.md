@@ -13,7 +13,6 @@ This is a simple yet powerful Todo List app built using React Native. It allows 
 - Delete todos with a cool animation
 - Fun and interactive user interface
 
-## errors when user loads the app again and gets the todos from memory it raises error when trying to delete the todos
 
 ## Here is sample video of the Todoapp ⭐
 
