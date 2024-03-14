@@ -1,6 +1,6 @@
 import { View, TouchableOpacity, Text } from 'react-native';
 import styles from '../../styles.js';
-
+// Setting what filter to show
 interface FilterButtonsProps {
   setFilter: (filter: string) => void;
 }

@@ -8,12 +8,15 @@ import styles from '../../styles.js';
 interface AddTodoProps {
   onAdd: (title: string) => void;
 }
-
+// The AddTodo component accepts an onAdd function as a prop
 export const AddTodo: React.FC<AddTodoProps> = ({ onAdd }) => {
+  
   const [input, setInput] = useState('');
-
+  // Function to handle the addition of a todo
   const handleAdd = () => {
+    // sends the input to the onAdd function
     onAdd(input);
+    // resets the input
     setInput('');
   };
 

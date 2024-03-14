@@ -9,7 +9,7 @@ export const Services = () => {
   const [filter, setFilter] = useState('all');
   const [deletingTodos, setDeletingTodos] = useState<Todo[]>([]);
   const idRef = useRef(0);
-
+  //loads the idRef from AsyncStorage when component mounts
   useEffect(() => {
     AsyncStorage.getItem('idRef')
       .then(value => {
@@ -18,7 +18,7 @@ export const Services = () => {
         }
       });
   }, []);
-
+  //loads the todos from AsyncStorage when component mounts
   useEffect(() => {
     AsyncStorage.getItem('todos')
       .then(value => {
@@ -32,18 +32,18 @@ export const Services = () => {
         }
       });
   }, []);
-
+   // saves the todos to AsyncStorage when the todos state changes
   useEffect(() => {
     const todosToStore = todos.map(({ id, title, done }) => ({ id, title, done }));
     AsyncStorage.setItem('todos', JSON.stringify(todosToStore));
   }, [todos]);
-
+  //shows the todos based on the filter
   const filteredTodos = todos.filter(todo => {
     if (filter === 'completed') return todo.done;
     if (filter === 'active') return !todo.done;
     return true;
   });
-
+  //deletes the todos with animation
   useEffect(() => {
     if (deletingTodos.length > 0) {
       const todo = deletingTodos[0];
@@ -57,7 +57,7 @@ export const Services = () => {
       });
     }
   }, [deletingTodos]);
-
+   //deletes the todos
   const deleteTodo = (id: number) => {
     const todo = todos.find(todo => todo.id === id);
     if (todo) {
@@ -67,7 +67,7 @@ export const Services = () => {
       Alert.alert(`Todo with id ${id} not found`);
     }
   };
-
+  //adds the todos
   const addTodo = (title: string) => {
    
     if (title.trim() === '') {   
@@ -83,7 +83,7 @@ export const Services = () => {
     AsyncStorage.setItem('idRef', JSON.stringify(idRef.current));
     
   };
-
+  //toggles the todos
   const toggleTodo = (id: number) => {
     setTodos(
       todos.map((todo) =>
