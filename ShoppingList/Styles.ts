@@ -3,24 +3,24 @@ import { StyleSheet } from 'react-native';
 export const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#f8f8f8',
-       
-        
+        backgroundColor: '#24292e', // GitHub's dark background color
     },
     title: {
-        fontSize: 40,
+        fontSize: 45,
         fontWeight: 'bold',
         textAlign: 'center',
         marginVertical: 20,
-      },
-    
+        color: '#ffffff', // White color for title
+        fontStyle: 'italic',
+        fontVariant: ['small-caps'],
+    },
     card: {
         marginTop: 50,
         width: '95%',
         alignSelf: 'center',
         padding: 15,
         borderRadius: 5,
-        backgroundColor: '#f8f8f8',
+        backgroundColor: '#1b2838', // Epic Games' dark background color
         marginVertical: 10,
         shadowColor: '#000',
         shadowOffset: { width: 0, height: 1 },
@@ -28,7 +28,6 @@ export const styles = StyleSheet.create({
         shadowRadius: 2,
         elevation: 2,
     },
- 
     item: {
         flexDirection: 'row',
         justifyContent: 'space-between',
@@ -36,12 +35,11 @@ export const styles = StyleSheet.create({
         margin:5,
         padding: 15,
         fontSize: 18,
-        borderBottomColor: '#ccc',
-        borderBottomWidth: 1,
-        backgroundColor: '#f8f8f8',
+    
+        backgroundColor: '#1b2838', 
         borderRadius: 5,
         marginVertical: 5,
-        shadowColor: '#000',
+      
         shadowOffset: { width: 0, height: 1 },
         shadowOpacity: 0.3,
         shadowRadius: 2,
@@ -61,35 +59,42 @@ export const styles = StyleSheet.create({
     },
     badd: {
         alignSelf: 'center',
-        margin:5,
-      },
+        margin: 5,
+      
+    },
+ 
     bdelete: {
-        backgroundColor: '#FF3B30',
+        backgroundColor: '#FF3B30', 
         padding: 10,
-        borderRadius: 5,
+        borderRadius: 10,
+        fontWeight: 'bold',
         shadowColor: '#000',
-        shadowOffset: { width: 0, height: 1 },
-        shadowOpacity: 0.3,
-        shadowRadius: 2,
-        elevation: 2,
-      },
-
-  
-      nameContainer: {
-        flexDirection: 'row',
-      },
-      name: {
-        fontSize: 18,
-        fontWeight: '600',
-        color: '#333',
-        marginLeft: 10,
-      },
-      quantity: {
+        shadowOffset: { width: 0, height: 2 },
+        shadowOpacity: 0.25,
+        shadowRadius: 10,
+        elevation: 5,
+    },
+    bfont: {
+        color: '#ffffff',
+        fontWeight: 'bold',
         fontSize: 16,
-        color: '#666',
-        backgroundColor: '#eee', 
-        borderRadius: 50, 
+    },
+    nameContainer: {
+        flexDirection: 'row',
+        alignItems: 'center',
+    },
+    name: {
+        fontSize: 23,
+        fontWeight: '600',
+        color: '#ffffff', 
+        marginLeft: 15,
+    },
+    quantity: {
+        fontSize: 16,
+        color: 'white',
+        backgroundColor: '#1C1C1E', 
+        borderRadius: 10, 
         padding: 5, 
         textAlign: 'center', 
-      },
+    },
 });

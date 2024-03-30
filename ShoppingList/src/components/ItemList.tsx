@@ -26,7 +26,7 @@ export const ItemList: React.FC<ItemListProps> = ({ items, onDelete }) => {
           </View>
           
           <TouchableOpacity style={styles.bdelete} onPress={() => onDelete(item.id)}>
-            <Text>Delete</Text>
+            <Text style={styles.bfont}>Delete</Text>
           </TouchableOpacity>
         </View>
       )}
