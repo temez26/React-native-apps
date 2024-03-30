@@ -66,12 +66,7 @@ export const styles = StyleSheet.create({
         justifyContent: 'center', 
         backgroundColor: 'rgba(10, 10, 10, 0.8)', 
     },
-    error: {
-        color: 'red',
-        marginLeft: 10,
-        marginBottom: 10,
-        fontWeight: 'bold',
-      },
+ 
     bdelete: {
         backgroundColor: '#FF3B30', 
         padding: 10,
@@ -88,6 +83,12 @@ export const styles = StyleSheet.create({
         fontWeight: 'bold',
         fontSize: 16,
     },
+    error: {
+        color: 'red',
+        marginLeft: 10,
+        marginBottom: 10,
+        fontWeight: 'bold',
+      },
     nameContainer: {
         flexDirection: 'row',
         alignItems: 'center',

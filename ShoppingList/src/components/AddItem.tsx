@@ -1,4 +1,3 @@
-// AddItem.tsx
 import React, { useState } from 'react';
 import { Button, TextInput, Text} from 'react-native-paper';
 import { styles } from '../../Styles';
