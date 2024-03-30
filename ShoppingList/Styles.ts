@@ -3,14 +3,14 @@ import { StyleSheet } from 'react-native';
 export const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#24292e', // GitHub's dark background color
+        backgroundColor: '#24292e', 
     },
     title: {
-        fontSize: 45,
+        fontSize: 50,
         fontWeight: 'bold',
         textAlign: 'center',
         marginVertical: 20,
-        color: '#ffffff', // White color for title
+        color: '#ffffff', 
         fontStyle: 'italic',
         fontVariant: ['small-caps'],
     },
@@ -20,7 +20,7 @@ export const styles = StyleSheet.create({
         alignSelf: 'center',
         padding: 15,
         borderRadius: 5,
-        backgroundColor: '#1b2838', // Epic Games' dark background color
+        backgroundColor: '#1b2838', 
         marginVertical: 10,
         shadowColor: '#000',
         shadowOffset: { width: 0, height: 1 },
@@ -92,9 +92,12 @@ export const styles = StyleSheet.create({
     quantity: {
         fontSize: 16,
         color: 'white',
-        backgroundColor: '#1C1C1E', 
-        borderRadius: 10, 
-        padding: 5, 
+        backgroundColor: 'rgba(10, 10, 10, 0.8)', 
+        width: 30, 
+        height: 30, 
+        borderRadius: 15, 
         textAlign: 'center', 
+        lineHeight: 30, 
+        textAlignVertical: 'center', 
     },
 });
