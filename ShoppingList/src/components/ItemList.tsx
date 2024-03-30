@@ -1,6 +1,7 @@
 // ItemList.tsx
 import React from 'react';
-import { FlatList, Text } from 'react-native';
+import { FlatList, Text, TouchableOpacity, View } from 'react-native';
+import { styles } from '../../Styles';
 
 interface Item {
   id: string;
@@ -10,14 +11,20 @@ interface Item {
 
 interface ItemListProps {
   items: Item[];
+  onDelete: (id: string) => void;
 }
 
-export const ItemList: React.FC<ItemListProps> = ({ items }) => {
+export const ItemList: React.FC<ItemListProps> = ({ items, onDelete }) => {
   return (
     <FlatList
       data={items}
       renderItem={({ item }) => (
-        <Text>{item.name} - Quantity: {item.quantity}</Text>
+        <View style={styles.item}>
+          <Text>{item.name} - Quantity: {item.quantity}</Text>
+          <TouchableOpacity style={styles.bdelete} onPress={() => onDelete(item.id)}>
+            <Text>Delete</Text>
+          </TouchableOpacity>
+        </View>
       )}
       keyExtractor={item => item.id}
     />
