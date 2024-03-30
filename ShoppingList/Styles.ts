@@ -16,10 +16,10 @@ export const styles = StyleSheet.create({
     },
     card: {
         marginTop: 50,
-        width: '95%',
+        width: '100%',
         alignSelf: 'center',
         padding: 15,
-        borderRadius: 5,
+        borderRadius: 25,
         backgroundColor: '#1b2838', 
         marginVertical: 10,
         shadowColor: '#000',
