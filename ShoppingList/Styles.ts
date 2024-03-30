@@ -6,14 +6,18 @@ export const styles = StyleSheet.create({
         backgroundColor: '#24292e', 
     },
     title: {
-        fontSize: 50,
+        fontSize: 40,
         fontWeight: 'bold',
         textAlign: 'center',
-        marginVertical: 20,
         color: '#ffffff', 
         fontStyle: 'italic',
         fontVariant: ['small-caps'],
     },
+    titleContainer: {
+        flexDirection: 'row',
+        alignItems: 'center',
+      },
+ 
     card: {
         marginTop: 50,
         width: '100%',

@@ -1,5 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, } from 'react';
+import { View } from 'react-native';
 import { Button, TextInput, Text} from 'react-native-paper';
+import LottieView from 'lottie-react-native';
 import { styles } from '../../Styles';
 
 interface AddItemProps {
@@ -33,7 +35,22 @@ export const AddItem: React.FC<AddItemProps> = ({ onAdd }) => {
 
   return (
     <>
-      <Text style={styles.title}>Add items to list</Text>
+
+     
+
+
+<View style={styles.titleContainer}>
+  <Text style={styles.title}>Add items to list</Text>
+  <LottieView
+    source={require('../../assets/list.json')}
+    autoPlay
+    loop
+    style={{ width: 70, height:70,  }} // Adjust these values as needed
+  />
+</View>
+
+
+
       
       <TextInput style={styles.input} label="Item Name" value={name} onChangeText={setName} />
       {nameError ? <Text style={styles.error}>{nameError}</Text> : null}
