@@ -1,4 +1,3 @@
-// ItemList.tsx
 import React from 'react';
 import { FlatList, Text, TouchableOpacity, View } from 'react-native';
 import { styles } from '../../Styles';
