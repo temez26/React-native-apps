@@ -21,8 +21,8 @@ export const AddItem: React.FC<AddItemProps> = ({ onAdd }) => {
     <>
       <TextInput style={styles.input} label="Item Name" value={name} onChangeText={setName} />
       <TextInput style={styles.input} label="Quantity" value={quantity} onChangeText={setQuantity} keyboardType="numeric" />
-      <Button style={styles.button} mode="contained" onPress={handleAdd}>
-        Add Item
+      <Button style = {styles.badd} mode="contained" onPress={handleAdd}>
+        +
       </Button>
     </>
   );

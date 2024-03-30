@@ -7,6 +7,13 @@ export const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
     },
+    title: {
+        fontSize: 30,
+        fontWeight: 'bold',
+        textAlign: 'center',
+        marginVertical: 20,
+      },
+    
     card: {
         width: '95%',
         alignSelf: 'center',
@@ -49,17 +56,13 @@ export const styles = StyleSheet.create({
         shadowRadius: 2,
         elevation: 2,
     },
-    button: {
-        marginTop: 10,
-        backgroundColor: '#007AFF',
-        padding: 10,
-        borderRadius: 5,
-        shadowColor: '#000',
-        shadowOffset: { width: 0, height: 1 },
-        shadowOpacity: 0.3,
-        shadowRadius: 2,
-        elevation: 2,
-    },
+    badd: {
+       
+        alignSelf: 'center',
+        width: 50, 
+        
+   
+      },
     bdelete: {
         backgroundColor: '#FF3B30',
         padding: 10,
