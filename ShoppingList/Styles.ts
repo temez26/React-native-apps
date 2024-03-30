@@ -6,16 +6,20 @@ export const styles = StyleSheet.create({
         backgroundColor: '#24292e', 
     },
     title: {
-        fontSize: 50,
+        fontSize: 40,
         fontWeight: 'bold',
         textAlign: 'center',
-        marginVertical: 20,
         color: '#ffffff', 
         fontStyle: 'italic',
         fontVariant: ['small-caps'],
     },
+    titleContainer: {
+        flexDirection: 'row',
+        alignItems: 'center',
+      },
+ 
     card: {
-        marginTop: 50,
+        marginTop: 20,
         width: '100%',
         alignSelf: 'center',
         padding: 15,
@@ -59,8 +63,12 @@ export const styles = StyleSheet.create({
     },
     badd: {
         alignSelf: 'center',
-        margin: 5,
-      
+        margin: 10,
+        width: 40, 
+        height: 50, 
+        borderRadius: 25, 
+        justifyContent: 'center', 
+        backgroundColor: 'rgba(10, 10, 10, 0.8)', 
     },
  
     bdelete: {
@@ -79,6 +87,12 @@ export const styles = StyleSheet.create({
         fontWeight: 'bold',
         fontSize: 16,
     },
+    error: {
+        color: 'red',
+        marginLeft: 10,
+        marginBottom: 10,
+        fontWeight: 'bold',
+      },
     nameContainer: {
         flexDirection: 'row',
         alignItems: 'center',
@@ -100,4 +114,35 @@ export const styles = StyleSheet.create({
         lineHeight: 30, 
         textAlignVertical: 'center', 
     },
+
+    // Header styles
+
+    headerContainer: {
+        marginTop: 30,
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        backgroundColor: '#24292e', 
+        padding: 15,
+        borderBottomWidth: 1,
+        borderBottomColor: '#ddd',
+      },
+      headerText: {
+        fontSize: 27,
+        fontWeight: 'bold',
+        color: '#ffffff', 
+      },
+    
+      backButtonText: {
+        fontSize: 30, 
+        color: '#ffffff', 
+      },
+      menuButton: {
+        backgroundColor: '#ffffff', 
+        borderRadius: 5, 
+        padding: 10, 
+      },
+      menuButtonText: {
+        fontWeight: 'bold',
+      },
 });
