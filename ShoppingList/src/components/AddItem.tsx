@@ -45,7 +45,7 @@ export const AddItem: React.FC<AddItemProps> = ({ onAdd }) => {
     source={require('../../assets/list.json')}
     autoPlay
     loop
-    style={{ width: 70, height:70,  }} // Adjust these values as needed
+    style={{ width: 70, height:70,  }} 
   />
 </View>
 

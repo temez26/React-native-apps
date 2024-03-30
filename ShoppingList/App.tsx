@@ -5,6 +5,7 @@ import { View } from 'react-native';
 import { Layout } from './src/layout';
 import { styles } from './Styles';
 
+// main app component
 export default function App() {
   return (
     <PaperProvider>
