@@ -1,4 +1,3 @@
-// services/itemService.ts
 interface Item {
     id: string;
     name: string;

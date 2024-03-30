@@ -1,4 +1,3 @@
-// store/itemStore.ts
 import { useReducer } from 'react';
 
 interface Item {

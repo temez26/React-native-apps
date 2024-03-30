@@ -59,10 +59,19 @@ export const styles = StyleSheet.create({
     },
     badd: {
         alignSelf: 'center',
-        margin: 5,
-      
+        margin: 10,
+        width: 40, 
+        height: 50, 
+        borderRadius: 25, 
+        justifyContent: 'center', 
+        backgroundColor: 'rgba(10, 10, 10, 0.8)', 
     },
- 
+    error: {
+        color: 'red',
+        marginLeft: 10,
+        marginBottom: 10,
+        fontWeight: 'bold',
+      },
     bdelete: {
         backgroundColor: '#FF3B30', 
         padding: 10,
