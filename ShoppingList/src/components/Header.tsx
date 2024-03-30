@@ -1,9 +1,9 @@
-// Header.tsx
 import React from 'react';
 import { Text, View, TouchableOpacity, BackHandler } from 'react-native';
 import { Menu } from 'react-native-paper';
 import { styles } from '../../Styles';
 
+// Setting up the header and its menu
 export const Header = () => {
   const [visible, setVisible] = React.useState(false);
 
@@ -13,7 +13,7 @@ export const Header = () => {
   const handleBackButtonClick = () => {
     BackHandler.exitApp();
   };
-
+// building the header with the menu and back button
   return (
     <View style={styles.headerContainer}>
   <TouchableOpacity onPress={handleBackButtonClick} >

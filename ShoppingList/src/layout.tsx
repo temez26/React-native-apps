@@ -7,7 +7,9 @@ import { useItemStore } from '../store/itemStore';
 import {Header} from './components/Header';
 import { styles } from '../Styles';
 
+
 export const Layout = () => {
+   // This gives us the current items, and functions to add and delete items
   const { items, addItem, deleteItem } = useItemStore();
 
   return (

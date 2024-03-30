@@ -1,6 +1,6 @@
 import { useReducer } from 'react';
 // items store
-interface Item {
+export interface Item {
   id: string;
   name: string;
   quantity: number;

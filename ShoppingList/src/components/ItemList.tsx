@@ -1,18 +1,14 @@
 import React from 'react';
 import { FlatList, Text, TouchableOpacity, View } from 'react-native';
 import { styles } from '../../Styles';
+import { Item } from '../../store/itemStore';
 
-interface Item {
-  id: string;
-  name: string;
-  quantity: number;
-}
-
+// Getting the items from the store and handling the delete function
 interface ItemListProps {
   items: Item[];
   onDelete: (id: string) => void;
 }
-
+// making the item list with the items added and making delete button
 export const ItemList: React.FC<ItemListProps> = ({ items, onDelete }) => {
   return (
     <FlatList
