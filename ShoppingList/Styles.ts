@@ -3,18 +3,19 @@ import { StyleSheet } from 'react-native';
 export const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#fff',
-        alignItems: 'center',
-        justifyContent: 'center',
+        backgroundColor: '#f8f8f8',
+       
+        
     },
     title: {
-        fontSize: 30,
+        fontSize: 40,
         fontWeight: 'bold',
         textAlign: 'center',
         marginVertical: 20,
       },
     
     card: {
+        marginTop: 50,
         width: '95%',
         alignSelf: 'center',
         padding: 15,
@@ -27,10 +28,12 @@ export const styles = StyleSheet.create({
         shadowRadius: 2,
         elevation: 2,
     },
+ 
     item: {
         flexDirection: 'row',
         justifyContent: 'space-between',
         alignItems: 'center',
+        margin:5,
         padding: 15,
         fontSize: 18,
         borderBottomColor: '#ccc',
@@ -57,11 +60,8 @@ export const styles = StyleSheet.create({
         elevation: 2,
     },
     badd: {
-       
         alignSelf: 'center',
-        width: 50, 
-        
-   
+        margin:5,
       },
     bdelete: {
         backgroundColor: '#FF3B30',
@@ -72,5 +72,24 @@ export const styles = StyleSheet.create({
         shadowOpacity: 0.3,
         shadowRadius: 2,
         elevation: 2,
+      },
+
+  
+      nameContainer: {
+        flexDirection: 'row',
+      },
+      name: {
+        fontSize: 18,
+        fontWeight: '600',
+        color: '#333',
+        marginLeft: 10,
+      },
+      quantity: {
+        fontSize: 16,
+        color: '#666',
+        backgroundColor: '#eee', 
+        borderRadius: 50, 
+        padding: 5, 
+        textAlign: 'center', 
       },
 });

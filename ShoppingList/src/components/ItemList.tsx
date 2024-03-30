@@ -20,7 +20,11 @@ export const ItemList: React.FC<ItemListProps> = ({ items, onDelete }) => {
       data={items}
       renderItem={({ item }) => (
         <View style={styles.item}>
-          <Text>{item.name} - Quantity: {item.quantity}</Text>
+          <View style={styles.nameContainer}>
+          <Text style={styles.quantity}>{item.quantity}</Text>
+  <Text style={styles.name}>{item.name}</Text>
+          </View>
+          
           <TouchableOpacity style={styles.bdelete} onPress={() => onDelete(item.id)}>
             <Text>Delete</Text>
           </TouchableOpacity>

@@ -1,6 +1,6 @@
 // AddItem.tsx
 import React, { useState } from 'react';
-import { Button, TextInput } from 'react-native-paper';
+import { Button, TextInput, Text } from 'react-native-paper';
 import { styles } from '../../Styles';
 
 interface AddItemProps {
@@ -19,6 +19,7 @@ export const AddItem: React.FC<AddItemProps> = ({ onAdd }) => {
 
   return (
     <>
+      <Text style={styles.title}>Add items to list</Text>
       <TextInput style={styles.input} label="Item Name" value={name} onChangeText={setName} />
       <TextInput style={styles.input} label="Quantity" value={quantity} onChangeText={setQuantity} keyboardType="numeric" />
       <Button style = {styles.badd} mode="contained" onPress={handleAdd}>
