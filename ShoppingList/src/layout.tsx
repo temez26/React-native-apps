@@ -13,7 +13,7 @@ export const Layout = () => {
   const { items, addItem, deleteItem } = useItemStore();
 
   return (
-    <View > 
+    <View style={{ flex: 1 }}> 
       <Header />
       <Card style={styles.card}>
         <AddItem onAdd={addItem} />

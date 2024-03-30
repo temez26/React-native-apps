@@ -16,24 +16,27 @@ export const AddItem: React.FC<AddItemProps> = ({ onAdd }) => {
   const [nameError, setNameError] = useState('');
   const [quantityError, setQuantityError] = useState('');
 // Define the function to handle adding an item
-  const handleAdd = () => {
-    if (!name && !quantity) {
-      setNameError('Enter Item Name');
-      setQuantityError('Enter Item Quantity');
-    } else if (!name) {
-      setNameError('Enter Item Name');
-      setQuantityError('');
-    } else if (!quantity) {
-      setNameError('');
-      setQuantityError('Enter Item Quantity');
-    } else {
-      onAdd({ name, quantity: Number(quantity) });
-      setName('');
-      setQuantity('');
-      setNameError('');
-      setQuantityError('');
-    }
-  };
+const handleAdd = () => {
+  if (!name && !quantity) {
+    setNameError('Enter Item Name');
+    setQuantityError('Enter Item Quantity');
+  } else if (!name) {
+    setNameError('Enter Item Name');
+    setQuantityError('');
+  } else if (!quantity) {
+    setNameError('');
+    setQuantityError('Enter Item Quantity');
+  } else if (Number(quantity) > 999) {
+    setNameError('');
+    setQuantityError('Quantity cannot exceed 999');
+  } else {
+    onAdd({ name, quantity: Number(quantity) });
+    setName('');
+    setQuantity('');
+    setNameError('');
+    setQuantityError('');
+  }
+};
 
   return (
     <>
@@ -48,7 +51,7 @@ export const AddItem: React.FC<AddItemProps> = ({ onAdd }) => {
       </View>
       <TextInput style={styles.input} label="Item Name" value={name} onChangeText={setName} />
       {nameError ? <Text style={styles.error}>{nameError}</Text> : null}
-      <TextInput style={styles.input} label="Quantity" value={quantity} onChangeText={setQuantity} keyboardType="numeric" />
+      <TextInput style={styles.input} label="Quantity Max(999)" value={quantity} onChangeText={setQuantity} keyboardType="numeric" />
       {quantityError ? <Text style={styles.error}>{quantityError}</Text> : null}
       <Button style={styles.badd} mode="contained" onPress={handleAdd}>
         +
