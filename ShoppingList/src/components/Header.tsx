@@ -1,39 +1,21 @@
-// Header.tsx
-import React from 'react';
-import { Text, View, TouchableOpacity, BackHandler } from 'react-native';
-import { Menu } from 'react-native-paper';
-import { styles } from '../../Styles';
+import * as React from 'react';
+import { Appbar, Switch } from 'react-native-paper';
+import { BackHandler, View } from 'react-native';
+import { DarkModeContext } from '../../DarkModeContext';
 
 export const Header = () => {
-  const [visible, setVisible] = React.useState(false);
+  const { isDarkMode, toggleDarkMode } = React.useContext(DarkModeContext);
 
-  const openMenu = () => setVisible(true);
-  const closeMenu = () => setVisible(false);
-
-  const handleBackButtonClick = () => {
-    BackHandler.exitApp();
-  };
+  const _goBack = () => BackHandler.exitApp();
 
   return (
-    <View style={styles.headerContainer}>
-  <TouchableOpacity onPress={handleBackButtonClick} >
-  <Text style={styles.backButtonText}>←</Text>
-</TouchableOpacity>
-<Text style={styles.headerText}>Shopping List App</Text>
-<Menu
-  visible={visible}
-  onDismiss={closeMenu}
-  anchor={
-    <TouchableOpacity style={styles.menuButton} onPress={openMenu}>
-      <Text style={styles.menuButtonText}>Menu</Text>
-    </TouchableOpacity>
-  }
-  
->
-  <Menu.Item onPress={() => {}} title="Main" />
-  <Menu.Item onPress={() => {}} title="Items" />
-</Menu>
-    </View>
+    <Appbar.Header mode='center-aligned'>
+      <Appbar.BackAction onPress={_goBack} />
+      <Appbar.Content titleStyle={{fontSize: 25}} title='Shopping List App' />
+      <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+        <Appbar.Action icon="theme-light-dark" />
+        <Switch value={isDarkMode} onValueChange={toggleDarkMode} />
+      </View>
+    </Appbar.Header>
   );
 };
-

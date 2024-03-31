@@ -1,35 +1,43 @@
 import React from 'react';
-import { FlatList, Text, TouchableOpacity, View } from 'react-native';
+import { FlatList, Text, View } from 'react-native';
+import { IconButton } from 'react-native-paper';
 import { styles } from '../../Styles';
+import { useItemStoreContext } from '../../store/itemStoreContext'; 
 
-interface Item {
-  id: string;
-  name: string;
-  quantity: number;
-}
+// Making the item list with the items added and delete and favorite button
+export const ItemList: React.FC = () => {
+  const { items, deleteItem, setFavorite } = useItemStoreContext(); 
 
-interface ItemListProps {
-  items: Item[];
-  onDelete: (id: string) => void;
-}
-
-export const ItemList: React.FC<ItemListProps> = ({ items, onDelete }) => {
   return (
-    <FlatList
-      data={items}
-      renderItem={({ item }) => (
-        <View style={styles.item}>
-          <View style={styles.nameContainer}>
-          <Text style={styles.quantity}>{item.quantity}</Text>
-  <Text style={styles.name}>{item.name}</Text>
+    <View style={{ flex: 1 }}>
+      <FlatList
+        data={items}
+        renderItem={({ item }) => (
+          <View style={styles.item}>
+            <View style={styles.nameContainer}>
+              <Text style={styles.quantity}>{item.quantity}</Text>
+              <Text style={styles.name}>{item.name}</Text>
+            </View>
+            <View style={{ flexDirection: 'row' }}>
+              <IconButton
+                icon="heart"
+                iconColor={item.favorite ? 'red' : 'grey'} 
+                style={{ opacity: 0.8 }}
+                size={30}
+                onPress={() => setFavorite(item.id, !item.favorite)} 
+              />
+              <IconButton
+                icon="delete"
+                iconColor="red"
+                style={{ opacity: 0.7 }}
+                size={30}
+                onPress={() => deleteItem(item.id)}
+              />
+            </View>
           </View>
-          
-          <TouchableOpacity style={styles.bdelete} onPress={() => onDelete(item.id)}>
-            <Text style={styles.bfont}>Delete</Text>
-          </TouchableOpacity>
-        </View>
-      )}
-      keyExtractor={item => item.id}
-    />
+        )}
+        keyExtractor={item => item.id}
+      />
+    </View>
   );
 };
