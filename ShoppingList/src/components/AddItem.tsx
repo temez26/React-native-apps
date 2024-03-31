@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { View, Text } from 'react-native';
-import { Button, TextInput } from 'react-native-paper';
+import { FAB, TextInput } from 'react-native-paper';
 import LottieView from 'lottie-react-native';
 import { styles } from '../../Styles';
 import { useItemStoreContext } from '../../store/itemStoreContext'; 
@@ -50,9 +50,11 @@ export const AddItem: React.FC = () => {
       {nameError ? <Text style={styles.error}>{nameError}</Text> : null}
       <TextInput style={styles.input} label="Quantity Max(999)" value={quantity} onChangeText={setQuantity} keyboardType="numeric" />
       {quantityError ? <Text style={styles.error}>{quantityError}</Text> : null}
-      <Button style={styles.badd} mode="contained" onPress={handleAdd}>
-        +
-      </Button>
+      <FAB
+    icon="plus"
+    style={styles.fab}
+    onPress={() => console.log('Pressed')}
+  />
     </>
   );
 };

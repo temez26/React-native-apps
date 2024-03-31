@@ -72,6 +72,11 @@ export const styles = StyleSheet.create({
     marginBottom: 10,
     fontWeight: 'bold',
   },
+  fab: {
+    alignSelf: 'center',  
+    backgroundColor: 'rgba(211, 211, 211, 0.6)',
+   
+  },
 
   // Itemlist styles
   nameContainer: {
@@ -99,15 +104,7 @@ export const styles = StyleSheet.create({
   },
 
   // button styles from additem and itemlist
-  badd: {
-    alignSelf: 'center',
-    margin: 10,
-    width: 40,
-    height: 50,
-    borderRadius: 25,
-    justifyContent: 'center',
-    backgroundColor: 'rgba(10, 10, 10, 0.8)',
-  },
+
 
   bdelete: {
     backgroundColor: '#FF3B30',

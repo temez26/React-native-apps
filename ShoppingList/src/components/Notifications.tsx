@@ -13,9 +13,7 @@ export const Notifications = () => {
   const onToggleOutdatedSwitch = () => setIsOutdatedSwitchOn(!isOutdatedSwitchOn);
 
   const saveSettings = async () => {
-    // save your settings here
-
-    // send a notification
+   
     if (isSwitchOn) {
       await Notifications1.scheduleNotificationAsync({
         content: {
