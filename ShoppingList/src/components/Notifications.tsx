@@ -11,8 +11,8 @@ export const Notifications = () => {
   const onToggleOutdatedSwitch = () => setIsOutdatedSwitchOn(!isOutdatedSwitchOn);
 
   return (
-    <View>
-      <Title style={{fontSize: 30, fontWeight: 'bold', alignSelf: 'center',marginBottom: 5}}>Favorites</Title>
+    <View style={{margin:10}}>
+      <Title style={{fontSize: 30, fontWeight: 'bold', alignSelf: 'center',marginBottom: 5}}>Notifications</Title>
         <Divider />
     <Card>
       <Card.Title title="Notifications Settings" />

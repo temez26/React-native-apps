@@ -41,7 +41,7 @@ export const Favorites = () => {
 
     return (
        
-        <View>
+        <View style={{margin:10}}>
         <Title style={{fontSize: 30, fontWeight: 'bold', alignSelf: 'center'}}>Favorites</Title>
         <Divider />
         {favorites.length > 0 ? (
