@@ -53,7 +53,7 @@ export const AddItem: React.FC = () => {
       <FAB
     icon="plus"
     style={styles.fab}
-    onPress={() => console.log('Pressed')}
+    onPress={() => handleAdd()}
   />
     </>
   );
