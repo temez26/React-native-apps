@@ -1,39 +1,19 @@
-import React from 'react';
-import { Text, View, TouchableOpacity, BackHandler } from 'react-native';
-import { Menu } from 'react-native-paper';
-import { styles } from '../../Styles';
+import * as React from 'react';
+import { Appbar } from 'react-native-paper';
 
-// Setting up the header and its menu
 export const Header = () => {
-  const [visible, setVisible] = React.useState(false);
+  const _goBack = () => console.log('Went back');
 
-  const openMenu = () => setVisible(true);
-  const closeMenu = () => setVisible(false);
+  const _handleSearch = () => console.log('Searching');
 
-  const handleBackButtonClick = () => {
-    BackHandler.exitApp();
-  };
-// building the header with the menu and back button
+  const _handleMore = () => console.log('Shown more');
+
   return (
-    <View style={styles.headerContainer}>
-  <TouchableOpacity onPress={handleBackButtonClick} >
-  <Text style={styles.backButtonText}>←</Text>
-</TouchableOpacity>
-<Text style={styles.headerText}>Shopping List App</Text>
-<Menu
-  visible={visible}
-  onDismiss={closeMenu}
-  anchor={
-    <TouchableOpacity style={styles.menuButton} onPress={openMenu}>
-      <Text style={styles.menuButtonText}>Menu</Text>
-    </TouchableOpacity>
-  }
-  
->
-  <Menu.Item onPress={() => {}} title="Main" />
-  <Menu.Item onPress={() => {}} title="Items" />
-</Menu>
-    </View>
+    <Appbar.Header mode = 'center-aligned' >
+      <Appbar.BackAction onPress={_goBack} />
+      <Appbar.Content title="Shopping List"  />
+      <Appbar.Action icon="magnify" onPress={_handleSearch} />
+      <Appbar.Action icon="dots-vertical" onPress={_handleMore} />
+    </Appbar.Header>
   );
 };
-
