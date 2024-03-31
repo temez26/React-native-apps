@@ -1,5 +1,5 @@
-import React, { useContext, ReactNode } from 'react';
-import { useItemStore,Item } from './itemStore';
+import React, {  ReactNode } from 'react';
+import { useItemStore, Item as ItemType } from './itemStore';
 
 
 interface ItemStore {
@@ -14,7 +14,7 @@ interface ItemStore {
 interface ItemStoreProviderProps {
   children: ReactNode;
 }
-
+export type Item = ItemType;
 export const ItemStoreProvider = ({ children }: ItemStoreProviderProps) => {
   const itemStore = useItemStore();
 
