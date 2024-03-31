@@ -1,6 +1,5 @@
 import * as React from 'react';
 import { BottomNavigation, Text } from 'react-native-paper';
-import { useItemStoreContext } from '../../store/itemStoreContext'; // import useItemStoreContext
 import { AddItem } from './AddItem';
 import { ItemList } from './ItemList';
 import { Favorites } from './Favorites';
@@ -9,6 +8,7 @@ import { Notifications } from './Notifications';
 import { Card } from 'react-native-paper';
 import { styles } from '../../Styles';
 
+// lets wrap the AddItem component in a Card component and outside of that the item list
 const ListRoute = () => {
   return (
     <>
@@ -19,6 +19,7 @@ const ListRoute = () => {
     </>
   );
 };
+
 export const Navigation = () => {
     const [index, setIndex] = React.useState(0);
     const [routes] = React.useState([

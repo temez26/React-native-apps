@@ -1,19 +1,21 @@
 import * as React from 'react';
-import { Appbar } from 'react-native-paper';
+import { Appbar, Switch } from 'react-native-paper';
+import { BackHandler, View } from 'react-native';
+import { DarkModeContext } from '../../DarkModeContext';
 
 export const Header = () => {
-  const _goBack = () => console.log('Went back');
+  const { isDarkMode, toggleDarkMode } = React.useContext(DarkModeContext);
 
-  const _handleSearch = () => console.log('Searching');
-
-  const _handleMore = () => console.log('Shown more');
+  const _goBack = () => BackHandler.exitApp();
 
   return (
-    <Appbar.Header mode = 'center-aligned' >
+    <Appbar.Header mode='center-aligned'>
       <Appbar.BackAction onPress={_goBack} />
-      <Appbar.Content title="Shopping List"  />
-      <Appbar.Action icon="magnify" onPress={_handleSearch} />
-      <Appbar.Action icon="dots-vertical" onPress={_handleMore} />
+      <Appbar.Content titleStyle={{fontSize: 25}} title='Shopping List App' />
+      <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+        <Appbar.Action icon="theme-light-dark" />
+        <Switch value={isDarkMode} onValueChange={toggleDarkMode} />
+      </View>
     </Appbar.Header>
   );
 };

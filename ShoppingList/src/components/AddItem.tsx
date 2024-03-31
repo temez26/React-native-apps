@@ -3,8 +3,9 @@ import { View, Text } from 'react-native';
 import { Button, TextInput } from 'react-native-paper';
 import LottieView from 'lottie-react-native';
 import { styles } from '../../Styles';
-import { useItemStoreContext } from '../../store/itemStoreContext'; // import useItemStoreContext
+import { useItemStoreContext } from '../../store/itemStoreContext'; 
 
+// AddItem component to add items to the list
 export const AddItem: React.FC = () => {
   const [name, setName] = useState('');
   const [quantity, setQuantity] = useState('');
@@ -27,7 +28,7 @@ export const AddItem: React.FC = () => {
       setNameError('');
       setQuantityError('Quantity cannot exceed 999');
     } else {
-      addItem({ name, quantity: Number(quantity) }); // use the addItem function to add the item to the store
+      addItem({ name, quantity: Number(quantity) }); 
       setName('');
       setQuantity('');
       setNameError('');
