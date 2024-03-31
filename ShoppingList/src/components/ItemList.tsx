@@ -22,12 +22,14 @@ export const ItemList: React.FC = () => {
               <IconButton
                 icon="heart"
                 iconColor={item.favorite ? 'red' : 'grey'} 
+                style={{ opacity: 0.8 }}
                 size={30}
                 onPress={() => setFavorite(item.id, !item.favorite)} 
               />
               <IconButton
                 icon="delete"
                 iconColor="red"
+                style={{ opacity: 0.7 }}
                 size={30}
                 onPress={() => deleteItem(item.id)}
               />

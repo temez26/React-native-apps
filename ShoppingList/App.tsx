@@ -15,8 +15,17 @@ export default function App() {
   const toggleDarkMode = () => {
     setIsDarkMode(!isDarkMode);
   };
+  const MyTheme = {
+    ...DefaultTheme,
+    colors: {
+      ...DefaultTheme.colors,
+      background: '#e0e0e0', 
+      surface: '#e0e0e0', 
+      
+    },
+  };
 
-  const theme = isDarkMode ? MD3DarkTheme : DefaultTheme;
+  const theme = isDarkMode ? MD3DarkTheme : MyTheme;
 
   return (
     <DarkModeContext.Provider value={{ isDarkMode, toggleDarkMode }}>
