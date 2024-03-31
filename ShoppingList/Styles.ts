@@ -5,6 +5,7 @@ export const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#24292e',
+    
   },
 
   card: {
@@ -55,7 +56,6 @@ export const styles = StyleSheet.create({
 
   input: {
     marginBottom: 10,
-    backgroundColor: 'white',
     paddingHorizontal: 10,
     height: 50,
     borderRadius: 5,

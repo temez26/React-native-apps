@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { FlatList, View } from 'react-native';
-import { Card, IconButton, Title } from 'react-native-paper';
+import { Card, IconButton, Title, Caption, Divider } from 'react-native-paper';
 import { useItemStoreContext, Item } from '../../store/itemStoreContext';
 
 // Function to randomise the color of favorite items
@@ -16,7 +16,6 @@ function getRandomColor() {
 export const Favorites = () => {
     const { items, setFavorite } = useItemStoreContext();
     const favorites = items.filter(item => item.favorite);
-
     const renderItem = ({ item }: { item: Item }) => (
         <View style={{ flex: 1, margin: 5 }}>
             <Card style={{ elevation: 3, backgroundColor: getRandomColor(), opacity: 0.8 }}>
@@ -41,7 +40,11 @@ export const Favorites = () => {
     );
 
     return (
-        favorites.length > 0 ? (
+       
+        <View>
+        <Title style={{fontSize: 30, fontWeight: 'bold', alignSelf: 'center'}}>Favorites</Title>
+        <Divider />
+        {favorites.length > 0 ? (
             <FlatList
                 data={favorites}
                 renderItem={renderItem}
@@ -49,9 +52,8 @@ export const Favorites = () => {
                 keyExtractor={(item) => item.id}
             />
         ) : (
-            <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-                <Title>No favorites yet</Title>
-            </View>
-        )
+            <Caption style={{fontSize: 20, alignSelf: 'center', marginTop: 270}}>Looks so empty...</Caption>
+        )}
+    </View>
     );
 };

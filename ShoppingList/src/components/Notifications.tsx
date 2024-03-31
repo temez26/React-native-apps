@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { useState } from 'react';
-import { Card, Switch, Button, Paragraph } from 'react-native-paper';
+import { View } from 'react-native';
+import { Card, Switch, Button, Paragraph,Title,Divider } from 'react-native-paper';
 // component to display the notifications settings
 export const Notifications = () => {
   const [isSwitchOn, setIsSwitchOn] = useState(false);
@@ -10,6 +11,9 @@ export const Notifications = () => {
   const onToggleOutdatedSwitch = () => setIsOutdatedSwitchOn(!isOutdatedSwitchOn);
 
   return (
+    <View>
+      <Title style={{fontSize: 30, fontWeight: 'bold', alignSelf: 'center',marginBottom: 5}}>Favorites</Title>
+        <Divider />
     <Card>
       <Card.Title title="Notifications Settings" />
       <Card.Content>
@@ -22,5 +26,6 @@ export const Notifications = () => {
         <Button onPress={() => {}}>Save</Button>
       </Card.Actions>
     </Card>
+    </View>
   );
 };
