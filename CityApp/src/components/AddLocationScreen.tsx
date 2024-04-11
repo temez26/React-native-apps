@@ -1,6 +1,7 @@
 // AddLocationScreen.tsx
 import React, { useState } from 'react';
-import { Button, Text, View, TextInput } from 'react-native';
+import { Input, Button } from 'react-native-elements';
+import { StyleSheet, View } from 'react-native';
 import { NavigationStackProp } from 'react-navigation-stack';
 import useCityStore, { City } from './CityStore';
 
@@ -28,12 +29,28 @@ const AddLocationScreen: React.FC<AddLocationScreenProps> = ({ navigation }) => 
   };
 
   return (
-    <View>
-      <Text>Location:</Text>
-      <TextInput value={location} onChangeText={setLocation} />
-      <Button title="Add Location" onPress={addLocation} />
-    </View>
+    <View style={styles.container}>
+    <Input
+      label="Location"
+      value={location}
+      onChangeText={setLocation}
+      containerStyle={styles.input}
+    />
+    <Button title="Add Location" onPress={addLocation} buttonStyle={styles.button} />
+  </View>
   );
 };
+const styles = StyleSheet.create({
+    container: {
+      flex: 1,
+      padding: 10,
+    },
+    input: {
+      marginBottom: 10,
+    },
+    button: {
+      backgroundColor: '#2089dc',
+    },
+  });
 
 export default AddLocationScreen;

@@ -2,7 +2,8 @@
 import 'react-native-get-random-values';
 import { v4 as uuidv4 } from 'uuid';
 import React, { useState } from 'react';
-import { Button, Text, View, TextInput } from 'react-native';
+import { StyleSheet, View } from 'react-native';
+import { Input, Button } from 'react-native-elements';
 import { NavigationStackProp } from 'react-navigation-stack';
 import useCityStore, { City } from './CityStore';
 
@@ -26,14 +27,34 @@ const AddCityScreen: React.FC<AddCityScreenProps> = ({ navigation }) => {
   };
 
   return (
-    <View>
-      <Text>Name:</Text>
-      <TextInput value={name} onChangeText={setName} />
-      <Text>Country:</Text>
-      <TextInput value={country} onChangeText={setCountry} />
-      <Button title="Add City" onPress={addCity} />
+    <View style={styles.container}>
+      <Input
+        label="Name"
+        value={name}
+        onChangeText={setName}
+        containerStyle={styles.input}
+      />
+      <Input
+        label="Country"
+        value={country}
+        onChangeText={setCountry}
+        containerStyle={styles.input}
+      />
+      <Button title="Add City" onPress={addCity} buttonStyle={styles.button} />
     </View>
   );
 };
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    padding: 10,
+  },
+  input: {
+    marginBottom: 10,
+  },
+  button: {
+    backgroundColor: '#2089dc',
+  },
+});
 
 export default AddCityScreen;

@@ -22,7 +22,6 @@ const useCityStore = () => {
 
   useEffect(() => {
     AsyncStorage.setItem('cities', JSON.stringify(cities));
-    
   }, [cities]);
 
   return { cities, setCities };

@@ -12,6 +12,7 @@ interface HomeScreenProps {
 
 const HomeScreen: React.FC<HomeScreenProps> = ({ navigation }) => {
   const { cities, setCities } = useCityStore();
+  
 
   return (
     <View style={styles.container}>
