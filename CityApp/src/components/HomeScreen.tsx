@@ -3,11 +3,18 @@ import React from 'react';
 import { FlatList, View, StyleSheet, TouchableOpacity, ActivityIndicator } from 'react-native';
 import { ListItem } from 'react-native-elements';
 import { FontAwesome } from '@expo/vector-icons';
-import useCityStore from './components/CityStore';
+import useCityStore, {City} from './CityStore';
 import { useNavigation, useFocusEffect } from '@react-navigation/native';
+import { NavigationProp } from '@react-navigation/native';
+
+type RootStackParamList = {
+  Info: undefined;
+  AddCity: undefined;
+  City: { city: City };
+};
 
 const HomeScreen: React.FC = () => {
-  const navigation = useNavigation();
+  const navigation = useNavigation<NavigationProp<RootStackParamList>>();
   const { cities, loading, fetchCities } = useCityStore();
 
   useFocusEffect(
@@ -59,12 +66,22 @@ const styles = StyleSheet.create({
     margin: 10,
   },
   addButton: {
-    backgroundColor: 'lightgray',
+    backgroundColor: '#007AFF', 
     padding: 10,
+    borderRadius: 5,
+    flex: 1,
+    alignItems: 'center',
+    marginRight: 5,
+    marginLeft: 1,
   },
   infoButton: {
-    backgroundColor: 'lightgray',
+    backgroundColor: '#007AFF', 
     padding: 10,
+    borderRadius: 5,
+    flex: 1,
+    alignItems: 'center',
+    marginLeft: 5,
+    marginRight: 1,
   },
 });
 

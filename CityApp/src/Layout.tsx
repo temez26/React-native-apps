@@ -1,7 +1,7 @@
 // App.tsx
 import { NavigationContainer, RouteProp } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import HomeScreen from './HomeScreen';
+import HomeScreen from './components/HomeScreen';
 import AddCityScreen from './components/AddCityScreen';
 import CityScreen from './components/CityScreen';
 import AddLocationScreen from './components/AddLocationScreen';
