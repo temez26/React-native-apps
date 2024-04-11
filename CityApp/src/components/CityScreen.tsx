@@ -10,7 +10,7 @@ interface CityScreenProps {
 }
 
 const CityScreen: React.FC<CityScreenProps> = ({ navigation }) => {
-  const { cities, setCities } = useCityStore();
+  const { cities} = useCityStore();
   const cityParam = navigation.getParam('city', {});
   const [city, setCity] = useState<City | null>(cityParam);
 
