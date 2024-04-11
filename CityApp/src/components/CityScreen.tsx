@@ -1,6 +1,7 @@
 // CityScreen.tsx
 import React, { useState, useEffect } from 'react';
-import { Button, Text, View, FlatList } from 'react-native';
+import { Button, Text, View, FlatList,StyleSheet } from 'react-native';
+import { ListItem } from 'react-native-elements';
 import { NavigationStackProp } from 'react-navigation-stack';
 import useCityStore, { City } from './CityStore';
 
@@ -27,16 +28,43 @@ const CityScreen: React.FC<CityScreenProps> = ({ navigation }) => {
   }
 
   return (
-    <View>
-      <Text>Name: {city.name}</Text>
-      <Text>Country: {city.country}</Text>
-      <Button title="Add Location" onPress={() => navigation.navigate('AddLocation', { city, updateCity })} />
-      <Text>Locations:</Text>
-      {city.locations && city.locations.map((location, index) => (
-        <Text key={index}>{location}</Text>
-      ))}
-    </View>
+    <View style={styles.container}>
+    <Text style={styles.title}>Country: {city.country}</Text>
+    <Button title="Add Location" onPress={() => navigation.navigate('AddLocation', { city, updateCity })} />
+    <Text style={styles.subtitle}>Locations:</Text>
+    <FlatList
+      data={city.locations}
+      keyExtractor={(item, index) => index.toString()}
+      renderItem={({ item }) => (
+        <ListItem bottomDivider>
+          <ListItem.Content>
+            <ListItem.Title>{item}</ListItem.Title>
+          </ListItem.Content>
+          <ListItem.Chevron />
+        </ListItem>
+      )}
+    />
+  </View>
   );
+  
 };
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    padding: 10,
+  },
+  title: {
+    fontSize: 20,
+    fontWeight: 'bold',
+  },
+  subtitle: {
+    fontSize: 16,
+    marginTop: 10,
+  },
+  item: {
+    fontSize: 14,
+    marginTop: 5,
+  },
+});
 
 export default CityScreen;
