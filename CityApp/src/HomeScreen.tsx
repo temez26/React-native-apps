@@ -1,10 +1,11 @@
 // HomeScreen.tsx
-import React from 'react';
+import React, { useEffect } from 'react';
 import { FlatList, View, StyleSheet, TouchableOpacity } from 'react-native';
 import { ListItem } from 'react-native-elements';
 import { NavigationStackProp } from 'react-navigation-stack';
 import { FontAwesome } from '@expo/vector-icons';
 import useCityStore from './components/CityStore';
+import { useFocusEffect } from '@react-navigation/native';
 
 interface HomeScreenProps {
   navigation: NavigationStackProp;
@@ -12,7 +13,8 @@ interface HomeScreenProps {
 
 const HomeScreen: React.FC<HomeScreenProps> = ({ navigation }) => {
   const { cities, setCities } = useCityStore();
-  
+ 
+ 
   return (
     <View style={styles.container}>
     <View style={styles.buttonContainer}>
