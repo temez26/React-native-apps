@@ -1,7 +1,9 @@
+// HomeScreen.tsx
 import React from 'react';
-import { Button, FlatList, View } from 'react-native';
+import { FlatList, View, StyleSheet, TouchableOpacity } from 'react-native';
 import { ListItem } from 'react-native-elements';
 import { NavigationStackProp } from 'react-navigation-stack';
+import { FontAwesome } from '@expo/vector-icons';
 import useCityStore from './components/CityStore';
 
 interface HomeScreenProps {
@@ -11,30 +13,53 @@ interface HomeScreenProps {
 const HomeScreen: React.FC<HomeScreenProps> = ({ navigation }) => {
   const { cities, setCities } = useCityStore();
 
- 
-
   return (
-    <View>
-      <Button title="Add City" onPress={() => navigation.navigate('AddCity', { setCities })} />
-      <FlatList
-        data={cities}
-        keyExtractor={(item) => item.id}
-        renderItem={({ item }) => {
-          console.log(item ); // Log each city object
-          return (
-            
-            <ListItem bottomDivider onPress={() => navigation.navigate('City', { city: item })}>
+    <View style={styles.container}>
+    <View style={styles.buttonContainer}>
+      <TouchableOpacity style={styles.infoButton} onPress={() => navigation.navigate('Info')}>
+        <FontAwesome name="info" size={24} color="black" />
+      </TouchableOpacity>
+      <TouchableOpacity style={styles.addButton} onPress={() => navigation.navigate('AddCity', { setCities })}>
+        <FontAwesome name="plus" size={24} color="black" />
+      </TouchableOpacity>
+    </View>
+    <FlatList
+      data={cities}
+      keyExtractor={(item) => item.id}
+      renderItem={({ item }) => {
+        console.log(item ); 
+        return (
+          <ListItem bottomDivider onPress={() => navigation.navigate('City', { city: item })}>
             <ListItem.Content>
               <ListItem.Title>{item.name}</ListItem.Title>
-              <ListItem.Subtitle>{`Country: ${item.country}, ID: ${item.id}`}</ListItem.Subtitle>
+              <ListItem.Subtitle>{`Country: ${item.country}`}</ListItem.Subtitle>
             </ListItem.Content>
             <ListItem.Chevron />
           </ListItem>
-          );
-        }}
-      />
-    </View>
+        );
+      }}
+    />
+  </View>
   );
 };
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
+  buttonContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    
+  },
+  addButton: {
+    backgroundColor: 'lightgray',
+    padding: 20,
+  },
+  infoButton: {
+    backgroundColor: 'lightgray',
+    padding: 20,
+  },
+});
 
 export default HomeScreen;

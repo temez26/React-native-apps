@@ -5,6 +5,7 @@ export interface City {
   id: string;
   name: string;
   country: string;
+  locations?: string[]; 
 }
 
 const useCityStore = () => {
