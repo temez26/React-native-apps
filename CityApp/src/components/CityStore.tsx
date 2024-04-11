@@ -15,7 +15,10 @@ const useCityStore = () => {
     (async () => {
       const storedCities = await AsyncStorage.getItem('cities');
       if (storedCities) {
-        setCities(JSON.parse(storedCities));
+        const parsedCities = JSON.parse(storedCities);
+        if (Array.isArray(parsedCities)) {
+          setCities(parsedCities);
+        }
       }
     })();
   }, []);
@@ -26,5 +29,4 @@ const useCityStore = () => {
 
   return { cities, setCities };
 };
-
 export default useCityStore;
