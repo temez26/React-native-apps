@@ -19,10 +19,24 @@ const Stack = createStackNavigator<RootStackParamList>();
 const AppNavigator = () => (
   <NavigationContainer>
     <Stack.Navigator initialRouteName="ListofCities">
-      <Stack.Screen name="ListofCities" component={HomeScreen} options={{ title: 'List of Cities' }} />
-      <Stack.Screen name="AddCity" component={AddCityScreen} />
-      <Stack.Screen name="City" component={CityScreen} options={({ route }) => ({ title: `Locations of ${route.params.city.name}` })} />
-      <Stack.Screen name="AddLocation" component={AddLocationScreen} options={({ route }) => ({ title: `Add Location to ${route.params.city.name}` })} />
+      <Stack.Screen name="ListofCities" component={HomeScreen} options={{ title: 'List of Cities', headerTitleAlign: 'center' }} />
+      <Stack.Screen name="AddCity" component={AddCityScreen} options={{ title: 'Add City', headerTitleAlign: 'center' }} />
+      <Stack.Screen 
+  name="City" 
+  component={CityScreen} 
+  options={({ route }) => ({ 
+    title: `Locations of ${route.params?.city.name}`, 
+    headerTitleAlign: 'center' 
+  })} 
+/>
+<Stack.Screen 
+  name="AddLocation" 
+  component={AddLocationScreen} 
+  options={({ route }) => ({ 
+    title: `Add Location to ${route.params?.city.name}`, 
+    headerTitleAlign: 'center' 
+  })} 
+/>
     </Stack.Navigator>
   </NavigationContainer>
 );
