@@ -1,18 +1,27 @@
+// AddCityScreen.tsx
+import 'react-native-get-random-values';
+import { v4 as uuidv4 } from 'uuid';
 import React, { useState } from 'react';
 import { Button, Text, View, TextInput } from 'react-native';
 import { NavigationStackProp } from 'react-navigation-stack';
+import useCityStore, { City } from './CityStore';
 
 interface AddCityScreenProps {
-  navigation: NavigationStackProp;
+  navigation: NavigationStackProp<{}>;
 }
 
 const AddCityScreen: React.FC<AddCityScreenProps> = ({ navigation }) => {
-  const setCities = navigation.getParam('setCities', () => {});
+  const { setCities } = useCityStore();
   const [name, setName] = useState('');
   const [country, setCountry] = useState('');
 
   const addCity = () => {
-    setCities((prevCities) => [...prevCities, { name, country, locations: [] }]);
+    const newCity: City = {
+      id: uuidv4(),
+      name,
+      country,
+    };
+    setCities(currentCities => [...currentCities, newCity]);
     navigation.goBack();
   };
 
