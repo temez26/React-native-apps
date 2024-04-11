@@ -13,7 +13,6 @@ interface HomeScreenProps {
 const HomeScreen: React.FC<HomeScreenProps> = ({ navigation }) => {
   const { cities, setCities } = useCityStore();
   
-
   return (
     <View style={styles.container}>
     <View style={styles.buttonContainer}>
@@ -25,7 +24,7 @@ const HomeScreen: React.FC<HomeScreenProps> = ({ navigation }) => {
       </TouchableOpacity>
     </View>
     <FlatList
-      data={cities}
+      data={cities} 
       keyExtractor={(item) => item.id}
       renderItem={({ item }) => {
         console.log(item ); 

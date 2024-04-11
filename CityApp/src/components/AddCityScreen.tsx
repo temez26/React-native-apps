@@ -22,6 +22,7 @@ const AddCityScreen: React.FC<AddCityScreenProps> = ({ navigation }) => {
       name,
       country,
     };
+
     setCities(currentCities => [...currentCities, newCity]);
     navigation.goBack();
   };
