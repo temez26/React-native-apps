@@ -5,6 +5,7 @@ import HomeScreen from './HomeScreen';
 import AddCityScreen from './components/AddCityScreen';
 import CityScreen from './components/CityScreen';
 import AddLocationScreen from './components/AddLocationScreen';
+import { City } from './components/CityStore';
 
 const AppNavigator = createStackNavigator(
   {

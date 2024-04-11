@@ -50,15 +50,16 @@ const styles = StyleSheet.create({
   buttonContainer: {
     flexDirection: 'row',
     justifyContent: 'space-between',
+    margin: 10,
     
   },
   addButton: {
     backgroundColor: 'lightgray',
-    padding: 20,
+    padding: 10,
   },
   infoButton: {
     backgroundColor: 'lightgray',
-    padding: 20,
+    padding: 10,
   },
 });
 
