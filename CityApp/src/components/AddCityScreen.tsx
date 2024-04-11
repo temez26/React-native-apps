@@ -4,14 +4,11 @@ import { v4 as uuidv4 } from 'uuid';
 import React, { useState } from 'react';
 import { StyleSheet, View } from 'react-native';
 import { Input, Button } from 'react-native-elements';
-import { NavigationStackProp } from 'react-navigation-stack';
+import { useNavigation } from '@react-navigation/native';
 import useCityStore, { City } from './CityStore';
 
-interface AddCityScreenProps {
-  navigation: NavigationStackProp<{}>;
-}
-
-const AddCityScreen: React.FC<AddCityScreenProps> = ({ navigation }) => {
+const AddCityScreen: React.FC = () => {
+  const navigation = useNavigation();
   const { setCities } = useCityStore();
   const [name, setName] = useState('');
   const [country, setCountry] = useState('');
@@ -45,6 +42,7 @@ const AddCityScreen: React.FC<AddCityScreenProps> = ({ navigation }) => {
     </View>
   );
 };
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,

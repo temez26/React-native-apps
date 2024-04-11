@@ -1,17 +1,19 @@
 // CityScreen.tsx
 import React, { useState, useEffect } from 'react';
-import { Button, Text, View, FlatList,StyleSheet } from 'react-native';
+import { Button, Text, View, FlatList, StyleSheet } from 'react-native';
 import { ListItem } from 'react-native-elements';
-import { NavigationStackProp } from 'react-navigation-stack';
+import { useNavigation } from '@react-navigation/native';
 import useCityStore, { City } from './CityStore';
+import { RouteProp } from '@react-navigation/native';
 
 interface CityScreenProps {
-  navigation: NavigationStackProp<{ city: City }>;
+  route: RouteProp<{ params: { city: City } }>;
 }
 
-const CityScreen: React.FC<CityScreenProps> = ({ navigation }) => {
-  const { cities} = useCityStore();
-  const cityParam = navigation.getParam('city', {});
+const CityScreen: React.FC<CityScreenProps> = ({ route }) => {
+  const navigation = useNavigation();
+  const { cities } = useCityStore();
+  const cityParam = route.params.city;
   const [city, setCity] = useState<City | null>(cityParam);
 
   useEffect(() => {
@@ -29,25 +31,25 @@ const CityScreen: React.FC<CityScreenProps> = ({ navigation }) => {
 
   return (
     <View style={styles.container}>
-    <Text style={styles.title}>Country: {city.country}</Text>
-    <Button title="Add Location" onPress={() => navigation.navigate('AddLocation', { city, updateCity })} />
-    <Text style={styles.subtitle}>Locations:</Text>
-    <FlatList
-      data={city.locations}
-      keyExtractor={(item, index) => index.toString()}
-      renderItem={({ item }) => (
-        <ListItem bottomDivider>
-          <ListItem.Content>
-            <ListItem.Title>{item}</ListItem.Title>
-          </ListItem.Content>
-          <ListItem.Chevron />
-        </ListItem>
-      )}
-    />
-  </View>
+      <Text style={styles.title}>Country: {city.country}</Text>
+      <Button title="Add Location" onPress={() => navigation.navigate('AddLocation', { city, updateCity })} />
+      <Text style={styles.subtitle}>Locations:</Text>
+      <FlatList
+        data={city.locations}
+        keyExtractor={(item, index) => index.toString()}
+        renderItem={({ item }) => (
+          <ListItem bottomDivider>
+            <ListItem.Content>
+              <ListItem.Title>{item}</ListItem.Title>
+            </ListItem.Content>
+            <ListItem.Chevron />
+          </ListItem>
+        )}
+      />
+    </View>
   );
-  
 };
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
