@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { Button, Text, View, FlatList, StyleSheet } from 'react-native';
+import { Button, Text, View, FlatList } from 'react-native';
 import { ListItem } from 'react-native-elements';
 import { useNavigation } from '@react-navigation/native';
 import useCityStore, { City } from './CityStore';
 import { RouteProp } from '@react-navigation/native';
+import { styles } from '../../styles';
 
 interface CityScreenProps {
   route: RouteProp<{ params: { city: City } }>;
@@ -49,23 +50,6 @@ const CityScreen: React.FC<CityScreenProps> = ({ route }) => {
   );
 };
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    padding: 10,
-  },
-  title: {
-    fontSize: 20,
-    fontWeight: 'bold',
-  },
-  subtitle: {
-    fontSize: 16,
-    marginTop: 10,
-  },
-  item: {
-    fontSize: 14,
-    marginTop: 5,
-  },
-});
+
 
 export default CityScreen;

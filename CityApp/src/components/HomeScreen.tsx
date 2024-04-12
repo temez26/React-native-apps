@@ -1,10 +1,11 @@
 import React from 'react';
-import { FlatList, View, StyleSheet, TouchableOpacity, ActivityIndicator } from 'react-native';
+import { FlatList, View,  TouchableOpacity, ActivityIndicator } from 'react-native';
 import { ListItem } from 'react-native-elements';
 import { FontAwesome } from '@expo/vector-icons';
 import useCityStore, {City} from './CityStore';
 import { useNavigation, useFocusEffect } from '@react-navigation/native';
 import { NavigationProp } from '@react-navigation/native';
+import {styles} from '../../styles';
 
 type RootStackParamList = {
   Info: undefined;
@@ -27,7 +28,7 @@ const HomeScreen: React.FC = () => {
   }
 
   const renderButton = (name: string, screen: keyof RootStackParamList) => (
-    <TouchableOpacity style={styles.button} onPress={() => navigation.navigate(screen)}>
+    <TouchableOpacity style={styles.buttonmenu} onPress={() => navigation.navigate(screen)}>
       <FontAwesome name={name} size={24} color="black" />
     </TouchableOpacity>
   );
@@ -55,23 +56,6 @@ const HomeScreen: React.FC = () => {
   );
 };
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-  buttonContainer: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    margin: 10,
-  },
-  button: {
-    backgroundColor: '#007AFF', 
-    padding: 10,
-    borderRadius: 5,
-    flex: 1,
-    alignItems: 'center',
-    margin: 5,
-  },
-});
+
 
 export default HomeScreen;

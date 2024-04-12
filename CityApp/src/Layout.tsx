@@ -1,5 +1,5 @@
 import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
+import { createStackNavigator,StackNavigationOptions } from '@react-navigation/stack';
 import HomeScreen from './components/HomeScreen';
 import AddCityScreen from './components/AddCityScreen';
 import CityScreen from './components/CityScreen';
@@ -17,7 +17,7 @@ type RootStackParamList = {
 
 const Stack = createStackNavigator<RootStackParamList>();
 
-const screenOptions = (title: string) => ({
+const screenOptions = (title: string): StackNavigationOptions => ({
   title,
   headerTitleAlign: 'center',
 });

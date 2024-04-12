@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import { Input, Button } from 'react-native-elements';
-import { StyleSheet, View } from 'react-native';
+import {  View } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import useCityStore, { City } from './CityStore';
 import { RouteProp } from '@react-navigation/native';
+import {styles} from '../../styles';
 
 interface AddLocationScreenProps {
   route: RouteProp<{ params: { city: City, updateCity: (city: City) => void } }>;
@@ -42,17 +43,6 @@ const AddLocationScreen: React.FC<AddLocationScreenProps> = ({ route }) => {
   );
 };
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    padding: 10,
-  },
-  input: {
-    marginBottom: 10,
-  },
-  button: {
-    backgroundColor: '#2089dc',
-  },
-});
+
 
 export default AddLocationScreen;
