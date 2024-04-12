@@ -1,4 +1,3 @@
-// CityScreen.tsx
 import React, { useState, useEffect } from 'react';
 import { Button, Text, View, FlatList, StyleSheet } from 'react-native';
 import { ListItem } from 'react-native-elements';

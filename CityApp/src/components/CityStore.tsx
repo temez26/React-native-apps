@@ -1,4 +1,3 @@
-// CityStore.tsx
 import { useState, useEffect, useCallback } from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 

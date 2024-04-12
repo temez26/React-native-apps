@@ -1,4 +1,3 @@
-// HomeScreen.tsx
 import React from 'react';
 import { FlatList, View, StyleSheet, TouchableOpacity, ActivityIndicator } from 'react-native';
 import { ListItem } from 'react-native-elements';
@@ -27,30 +26,30 @@ const HomeScreen: React.FC = () => {
     return <ActivityIndicator size="large" color="#0000ff" />;
   }
 
+  const renderButton = (name: string, screen: keyof RootStackParamList) => (
+    <TouchableOpacity style={styles.button} onPress={() => navigation.navigate(screen)}>
+      <FontAwesome name={name} size={24} color="black" />
+    </TouchableOpacity>
+  );
+
   return (
     <View style={styles.container}>
       <View style={styles.buttonContainer}>
-        <TouchableOpacity style={styles.infoButton} onPress={() => navigation.navigate('Info')}>
-          <FontAwesome name="info" size={24} color="black" />
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.addButton} onPress={() => navigation.navigate('AddCity')}>
-          <FontAwesome name="plus" size={24} color="black" />
-        </TouchableOpacity>
+        {renderButton("info", "Info")}
+        {renderButton("plus", "AddCity")}
       </View>
       <FlatList
         data={cities} 
         keyExtractor={(item) => item.id}
-        renderItem={({ item }) => {
-          return (
-            <ListItem bottomDivider onPress={() => navigation.navigate('City', { city: item })}>
-              <ListItem.Content>
-                <ListItem.Title>{item.name}</ListItem.Title>
-                <ListItem.Subtitle>{`Country: ${item.country}`}</ListItem.Subtitle>
-              </ListItem.Content>
-              <ListItem.Chevron />
-            </ListItem>
-          );
-        }}
+        renderItem={({ item }) => (
+          <ListItem bottomDivider onPress={() => navigation.navigate('City', { city: item })}>
+            <ListItem.Content>
+              <ListItem.Title>{item.name}</ListItem.Title>
+              <ListItem.Subtitle>{`Country: ${item.country}`}</ListItem.Subtitle>
+            </ListItem.Content>
+            <ListItem.Chevron />
+          </ListItem>
+        )}
       />
     </View>
   );
@@ -65,23 +64,13 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     margin: 10,
   },
-  addButton: {
+  button: {
     backgroundColor: '#007AFF', 
     padding: 10,
     borderRadius: 5,
     flex: 1,
     alignItems: 'center',
-    marginRight: 5,
-    marginLeft: 1,
-  },
-  infoButton: {
-    backgroundColor: '#007AFF', 
-    padding: 10,
-    borderRadius: 5,
-    flex: 1,
-    alignItems: 'center',
-    marginLeft: 5,
-    marginRight: 1,
+    margin: 5,
   },
 });
 
