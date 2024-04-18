@@ -19,7 +19,6 @@ const AddLocationScreen: React.FC<AddLocationScreenProps> = ({ route }) => {
     setCities(currentCities =>
       currentCities.map(c => (c.id === city.id ? updatedCity : c))
     );
-    console.log(updatedCity); 
     updateCity(updatedCity);
     navigation.goBack();
   };
