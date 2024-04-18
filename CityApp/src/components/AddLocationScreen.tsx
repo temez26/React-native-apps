@@ -1,8 +1,4 @@
-import React, { useState } from 'react';
-import { useNavigation } from '@react-navigation/native';
-import useCityStore, { City } from './CityStore';
-import { RouteProp } from '@react-navigation/native';
-import { Button, Card, TextInput } from 'react-native-paper';
+import { React, useState, useNavigation, useCityStore, City, RouteProp, Button, Card, TextInput } from '../deps';
 
 interface AddLocationScreenProps {
   route: RouteProp<{ params: { city: City, updateCity: (city: City) => void } }>;

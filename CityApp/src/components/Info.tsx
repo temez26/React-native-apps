@@ -1,5 +1,4 @@
-import React from 'react';
-import { Card, Title, Subheading, Paragraph } from 'react-native-paper';
+import { Card, Title, Subheading, Paragraph } from '../deps';
 
 const Info: React.FC = () => {
   return (

@@ -1,9 +1,4 @@
-import React, { useState, useEffect } from 'react';
-import { FlatList } from 'react-native';
-import { useNavigation } from '@react-navigation/native';
-import useCityStore, { City } from './CityStore';
-import { RouteProp } from '@react-navigation/native';
-import { Button, Card, Title, Subheading, List } from 'react-native-paper';
+import { Button, Card, Title, Subheading, List,RouteProp ,useCityStore, City,useNavigation,FlatList,useState, useEffect} from '../deps';
 
 interface CityScreenProps {
   route: RouteProp<{ params: { city: City } }>;
