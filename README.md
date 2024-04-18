@@ -18,6 +18,11 @@ https://github.com/temez26/React-native-apps/assets/95919515/d28e3d03-faee-4286-
 
 https://github.com/temez26/React-native-apps/assets/95919515/d0b3943d-5585-43f8-9992-d4c622affcf8
 
+## Here is sample video of the City App ⭐
+
+https://github.com/temez26/React-native-apps/assets/95919515/222159b6-8b2b-47d2-a64c-fbfe49008cf5
+
+
 
 
 
