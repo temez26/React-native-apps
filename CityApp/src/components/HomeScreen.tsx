@@ -1,9 +1,18 @@
-import React, { FC, useCallback } from 'react';
-import { FlatList, View } from 'react-native';
-import useCityStore, { City } from './CityStore';
-import { useNavigation, useFocusEffect } from '@react-navigation/native';
-import { NavigationProp } from '@react-navigation/native';
-import { Button, ActivityIndicator, Card } from 'react-native-paper';
+import { 
+  React, 
+  FC, 
+  useCallback, 
+  FlatList, 
+  View, 
+  useCityStore, 
+  City, 
+  useNavigation, 
+  useFocusEffect, 
+  NavigationProp, 
+  Button, 
+  ActivityIndicator, 
+  Card 
+} from '../deps';
 
 type RootStackParamList = {
   Info: undefined;
