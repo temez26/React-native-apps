@@ -1,11 +1,10 @@
-import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator, StackNavigationOptions } from '@react-navigation/stack';
+import { React,NavigationContainer, createStackNavigator, StackNavigationOptions, City } from './deps';
 import HomeScreen from './components/HomeScreen';
 import AddCityScreen from './components/AddCityScreen';
 import CityScreen from './components/CityScreen';
 import AddLocationScreen from './components/AddLocationScreen';
 import Info from './components/Info';
-import { City } from './components/CityStore';
+
 
 type RootStackParamList = {
   ListofCities: undefined;

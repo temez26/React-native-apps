@@ -1,9 +1,4 @@
-
-import { v4 as uuidv4 } from 'uuid';
-import React, { useState } from 'react';
-import { useNavigation } from '@react-navigation/native';
-import useCityStore, { City } from './CityStore';
-import { Button, Card, TextInput } from 'react-native-paper';
+import { useState, Button, Card,uuidv4, TextInput, useNavigation,useCityStore, City} from '../deps';
 
 const AddCityScreen: React.FC = () => {
   const navigation = useNavigation();
