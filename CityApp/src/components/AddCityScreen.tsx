@@ -1,17 +1,7 @@
-// AddCityScreen.tsx
-import 'react-native-get-random-values';
-import { v4 as uuidv4 } from 'uuid';
-import React, { useState } from 'react';
-import { StyleSheet, View } from 'react-native';
-import { Input, Button } from 'react-native-elements';
-import { NavigationStackProp } from 'react-navigation-stack';
-import useCityStore, { City } from './CityStore';
+import { useState, Button, Card,uuidv4, TextInput, useNavigation,useCityStore, City} from '../deps';
 
-interface AddCityScreenProps {
-  navigation: NavigationStackProp<{}>;
-}
-
-const AddCityScreen: React.FC<AddCityScreenProps> = ({ navigation }) => {
+const AddCityScreen: React.FC = () => {
+  const navigation = useNavigation();
   const { setCities } = useCityStore();
   const [name, setName] = useState('');
   const [country, setCountry] = useState('');
@@ -28,34 +18,24 @@ const AddCityScreen: React.FC<AddCityScreenProps> = ({ navigation }) => {
   };
 
   return (
-    <View style={styles.container}>
-      <Input
-        label="Name"
-        value={name}
-        onChangeText={setName}
-        containerStyle={styles.input}
-      />
-      <Input
-        label="Country"
-        value={country}
-        onChangeText={setCountry}
-        containerStyle={styles.input}
-      />
-      <Button title="Add City" onPress={addCity} buttonStyle={styles.button} />
-    </View>
+    <Card>
+      <Card.Content>
+        <TextInput
+          label="City Name"
+          value={name}
+          onChangeText={setName}
+        />
+        <TextInput
+          label="Country"
+          value={country}
+          onChangeText={setCountry}
+        />
+        <Button mode="contained" onPress={addCity}>
+          Add City
+        </Button>
+      </Card.Content>
+    </Card>
   );
 };
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    padding: 10,
-  },
-  input: {
-    marginBottom: 10,
-  },
-  button: {
-    backgroundColor: '#2089dc',
-  },
-});
 
 export default AddCityScreen;
