@@ -21,7 +21,7 @@ const AddCityScreen: React.FC = () => {
     <Card>
       <Card.Content>
         <TextInput
-          label="Name"
+          label="City Name"
           value={name}
           onChangeText={setName}
         />
