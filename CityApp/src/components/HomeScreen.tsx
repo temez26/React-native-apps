@@ -1,11 +1,9 @@
 import React from 'react';
-import { FlatList, View,  TouchableOpacity, ActivityIndicator } from 'react-native';
-import { ListItem } from 'react-native-elements';
-import { FontAwesome } from '@expo/vector-icons';
+import { FlatList, View } from 'react-native';
 import useCityStore, {City} from './CityStore';
 import { useNavigation, useFocusEffect } from '@react-navigation/native';
 import { NavigationProp } from '@react-navigation/native';
-import {styles} from '../../styles';
+import { Button, ActivityIndicator, Card } from 'react-native-paper';
 
 type RootStackParamList = {
   Info: undefined;
@@ -24,38 +22,33 @@ const HomeScreen: React.FC = () => {
   );
 
   if (loading) {
-    return <ActivityIndicator size="large" color="#0000ff" />;
+    return <ActivityIndicator animating={true} color="#0000ff" />;
   }
 
-  const renderButton = (name: string, screen: keyof RootStackParamList) => (
-    <TouchableOpacity style={styles.buttonmenu} onPress={() => navigation.navigate(screen)}>
-      <FontAwesome name={name} size={24} color="black" />
-    </TouchableOpacity>
+  const renderButton = (iconName: string, screen: keyof RootStackParamList, buttonText: string) => (
+    <Button icon={iconName} mode="contained" onPress={() => navigation.navigate(screen)}>
+      {buttonText}
+    </Button>
   );
 
   return (
-    <View style={styles.container}>
-      <View style={styles.buttonContainer}>
-        {renderButton("info", "Info")}
-        {renderButton("plus", "AddCity")}
-      </View>
+    <View>
+   <View style={{ flexDirection: 'row', justifyContent: 'space-between', margin: 10 }}>
+  {renderButton("information", "Info", "Info")}
+  {renderButton("plus-circle", "AddCity", "Add")}
+</View>
       <FlatList
         data={cities} 
         keyExtractor={(item) => item.id}
         renderItem={({ item }) => (
-          <ListItem bottomDivider onPress={() => navigation.navigate('City', { city: item })}>
-            <ListItem.Content>
-              <ListItem.Title>{item.name}</ListItem.Title>
-              <ListItem.Subtitle>{`Country: ${item.country}`}</ListItem.Subtitle>
-            </ListItem.Content>
-            <ListItem.Chevron />
-          </ListItem>
+          <Card onPress={() => navigation.navigate('City', { city: item })}>
+            <Card.Title title={item.name} subtitle={`Country: ${item.country}`} />
+          
+          </Card>
         )}
       />
     </View>
   );
 };
-
-
 
 export default HomeScreen;

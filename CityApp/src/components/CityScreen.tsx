@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { Button, Text, View, FlatList } from 'react-native';
-import { ListItem } from 'react-native-elements';
+import { FlatList } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import useCityStore, { City } from './CityStore';
 import { RouteProp } from '@react-navigation/native';
-import { styles } from '../../styles';
+import { Button, Card, Title, Subheading, List } from 'react-native-paper';
 
 interface CityScreenProps {
   route: RouteProp<{ params: { city: City } }>;
@@ -30,26 +29,26 @@ const CityScreen: React.FC<CityScreenProps> = ({ route }) => {
   }
 
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Country: {city.country}</Text>
-      <Button title="Add Location" onPress={() => navigation.navigate('AddLocation', { city, updateCity })} />
-      <Text style={styles.subtitle}>Locations:</Text>
-      <FlatList
-        data={city.locations}
-        keyExtractor={(item, index) => index.toString()}
-        renderItem={({ item }) => (
-          <ListItem bottomDivider>
-            <ListItem.Content>
-              <ListItem.Title>{item}</ListItem.Title>
-            </ListItem.Content>
-            <ListItem.Chevron />
-          </ListItem>
-        )}
-      />
-    </View>
+    <Card>
+      <Card.Content>
+        <Title>Country: {city.country}</Title>
+        <Button mode="contained" onPress={() => navigation.navigate('AddLocation', { city, updateCity })}>
+          Add Location
+        </Button>
+        <Subheading>Locations:</Subheading>
+        <FlatList
+          data={city.locations}
+          keyExtractor={(item, index) => index.toString()}
+          renderItem={({ item }) => (
+            <List.Item
+              title={item}
+              right={() => <List.Icon icon="chevron-right" />}
+            />
+          )}
+        />
+      </Card.Content>
+    </Card>
   );
 };
-
-
 
 export default CityScreen;

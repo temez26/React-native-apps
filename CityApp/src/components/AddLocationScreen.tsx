@@ -1,10 +1,8 @@
 import React, { useState } from 'react';
-import { Input, Button } from 'react-native-elements';
-import {  View } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import useCityStore, { City } from './CityStore';
 import { RouteProp } from '@react-navigation/native';
-import {styles} from '../../styles';
+import { Button, Card, TextInput } from 'react-native-paper';
 
 interface AddLocationScreenProps {
   route: RouteProp<{ params: { city: City, updateCity: (city: City) => void } }>;
@@ -31,18 +29,19 @@ const AddLocationScreen: React.FC<AddLocationScreenProps> = ({ route }) => {
   };
 
   return (
-    <View style={styles.container}>
-      <Input
-        label="Location"
-        value={location}
-        onChangeText={setLocation}
-        containerStyle={styles.input}
-      />
-      <Button title="Add Location" onPress={addLocation} buttonStyle={styles.button} />
-    </View>
+    <Card>
+      <Card.Content>
+        <TextInput
+          label="Location"
+          value={location}
+          onChangeText={setLocation}
+        />
+        <Button mode="contained" onPress={addLocation}>
+          Add Location
+        </Button>
+      </Card.Content>
+    </Card>
   );
 };
-
-
 
 export default AddLocationScreen;
